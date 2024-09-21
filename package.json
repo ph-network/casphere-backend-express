@@ -5,7 +5,8 @@
   "main": "dist/index.js",
   "scripts": {
     "build": "tsc",
-    "serve": "npx ts-node src/index.ts"
+    "serve": "npx ts-node src/index.ts",
+    "dev": "nodemon --exec npm run serve src/index.ts"
   },
   "dependencies": {
     "@types/express": "^4.17.21",
@@ -20,6 +21,7 @@
   },
   "devDependencies": {
     "@types/morgan": "^1.9.9",
+    "nodemon": "^3.1.7",
     "typescript": "^5.5.3"
   },
   "private": true
