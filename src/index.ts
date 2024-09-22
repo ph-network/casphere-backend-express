@@ -1,7 +1,7 @@
 import express from "express"
 import dotenv from "dotenv";
 import "reflect-metadata"
-import user from "./api/user.api";
+import user from "./controllers/user.controller";
 import {logger, morganMiddleware} from "./logger";
 
 dotenv.config();
