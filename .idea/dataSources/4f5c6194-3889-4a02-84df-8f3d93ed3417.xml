@@ -3,7 +3,7 @@
   <database-model serializer="dbm" dbms="POSTGRES" family-id="POSTGRES" format-version="4.53">
     <root id="1">
       <DateStyle>mdy</DateStyle>
-      <IntrospectionStateNumber>740</IntrospectionStateNumber>
+      <IntrospectionStateNumber>759</IntrospectionStateNumber>
       <ServerVersion>14.13</ServerVersion>
       <StartupTime>1727155528</StartupTime>
       <TimeZones>true ACDT
@@ -801,7 +801,7 @@ false Zulu
 13722||10|C|G
 13722||-9223372036854775808|U|G
 13722||10|U|G</Grants>
-      <IntrospectionStateNumber>740</IntrospectionStateNumber>
+      <IntrospectionStateNumber>759</IntrospectionStateNumber>
       <ObjectId>16384</ObjectId>
       <OwnerName>phakel</OwnerName>
     </database>
@@ -4231,69 +4231,159 @@ false Zulu
     <schema id="262" parent="2" name="public">
       <Comment>standard public schema</Comment>
       <Current>1</Current>
-      <IntrospectionStateNumber>740</IntrospectionStateNumber>
-      <LastIntrospectionLocalTimestamp>2024-09-24.06:58:33</LastIntrospectionLocalTimestamp>
+      <IntrospectionStateNumber>759</IntrospectionStateNumber>
+      <LastIntrospectionLocalTimestamp>2024-09-24.09:15:49</LastIntrospectionLocalTimestamp>
       <ObjectId>2200</ObjectId>
       <StateNumber>526</StateNumber>
       <OwnerName>phakel</OwnerName>
     </schema>
-    <sequence id="263" parent="262" name="user_id_seq">
-      <ObjectId>16385</ObjectId>
-      <SequenceIdentity>1</SequenceIdentity>
-      <StartValue>1</StartValue>
-      <StateNumber>739</StateNumber>
-      <StoredType>integer|0s</StoredType>
-      <OwnerName>phakel</OwnerName>
-    </sequence>
-    <table id="264" parent="262" name="user">
-      <ObjectId>16386</ObjectId>
-      <StateNumber>739</StateNumber>
+    <table id="263" parent="262" name="club">
+      <ObjectId>16503</ObjectId>
+      <StateNumber>758</StateNumber>
       <AccessMethodId>2</AccessMethodId>
       <OwnerName>phakel</OwnerName>
     </table>
-    <column id="265" parent="264" name="id">
-      <DefaultExpression>nextval(&apos;user_id_seq&apos;::regclass)</DefaultExpression>
+    <table id="264" parent="262" name="user">
+      <ObjectId>16510</ObjectId>
+      <StateNumber>758</StateNumber>
+      <AccessMethodId>2</AccessMethodId>
+      <OwnerName>phakel</OwnerName>
+    </table>
+    <table id="265" parent="262" name="user_joined_clubs_club">
+      <ObjectId>16517</ObjectId>
+      <StateNumber>758</StateNumber>
+      <AccessMethodId>2</AccessMethodId>
+      <OwnerName>phakel</OwnerName>
+    </table>
+    <column id="266" parent="263" name="id">
       <NotNull>1</NotNull>
       <Position>1</Position>
-      <StateNumber>739</StateNumber>
-      <StoredType>integer|0s</StoredType>
-      <SequenceId>16385</SequenceId>
-      <TypeId>23</TypeId>
+      <StateNumber>758</StateNumber>
+      <StoredType>uuid|0s</StoredType>
+      <TypeId>2950</TypeId>
     </column>
-    <column id="266" parent="264" name="firstName">
+    <column id="267" parent="263" name="name">
       <NotNull>1</NotNull>
       <Position>2</Position>
-      <StateNumber>739</StateNumber>
+      <StateNumber>758</StateNumber>
       <StoredType>varchar|0s</StoredType>
       <TypeId>1043</TypeId>
     </column>
-    <column id="267" parent="264" name="lastName">
-      <NotNull>1</NotNull>
+    <column id="268" parent="263" name="ownerId">
       <Position>3</Position>
-      <StateNumber>739</StateNumber>
+      <StateNumber>758</StateNumber>
       <StoredType>varchar|0s</StoredType>
       <TypeId>1043</TypeId>
     </column>
-    <column id="268" parent="264" name="age">
-      <NotNull>1</NotNull>
-      <Position>4</Position>
-      <StateNumber>739</StateNumber>
-      <StoredType>integer|0s</StoredType>
-      <TypeId>23</TypeId>
-    </column>
-    <index id="269" parent="264" name="PK_cace4a159ff9f2512dd42373760">
+    <foreign-key id="269" parent="263" name="FK_ba3d31fd5c7bc1c7839ac87e25b">
+      <ColNames>ownerId</ColNames>
+      <ObjectId>16526</ObjectId>
+      <StateNumber>758</StateNumber>
+      <RefKeyColPositions>1</RefKeyColPositions>
+      <RefTableId>16510</RefTableId>
+    </foreign-key>
+    <index id="270" parent="263" name="PK_79282481e036a6e0b180afa38aa">
       <ColNames>id</ColNames>
-      <ObjectId>16392</ObjectId>
+      <ObjectId>16508</ObjectId>
       <Primary>1</Primary>
-      <StateNumber>739</StateNumber>
+      <StateNumber>758</StateNumber>
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
     </index>
-    <key id="270" parent="264" name="PK_cace4a159ff9f2512dd42373760">
-      <ObjectId>16393</ObjectId>
+    <key id="271" parent="263" name="PK_79282481e036a6e0b180afa38aa">
+      <ObjectId>16509</ObjectId>
       <Primary>1</Primary>
-      <StateNumber>739</StateNumber>
-      <UnderlyingIndexId>16392</UnderlyingIndexId>
+      <StateNumber>758</StateNumber>
+      <UnderlyingIndexId>16508</UnderlyingIndexId>
+    </key>
+    <column id="272" parent="264" name="id">
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+      <StateNumber>758</StateNumber>
+      <StoredType>varchar|0s</StoredType>
+      <TypeId>1043</TypeId>
+    </column>
+    <index id="273" parent="264" name="PK_cace4a159ff9f2512dd42373760">
+      <ColNames>id</ColNames>
+      <ObjectId>16515</ObjectId>
+      <Primary>1</Primary>
+      <StateNumber>758</StateNumber>
+      <Unique>1</Unique>
+      <AccessMethodId>403</AccessMethodId>
+      <CollationNames>default</CollationNames>
+      <CollationIds>100</CollationIds>
+      <CollationParentNames>pg_catalog</CollationParentNames>
+    </index>
+    <key id="274" parent="264" name="PK_cace4a159ff9f2512dd42373760">
+      <ObjectId>16516</ObjectId>
+      <Primary>1</Primary>
+      <StateNumber>758</StateNumber>
+      <UnderlyingIndexId>16515</UnderlyingIndexId>
+    </key>
+    <column id="275" parent="265" name="userId">
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+      <StateNumber>758</StateNumber>
+      <StoredType>varchar|0s</StoredType>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="276" parent="265" name="clubId">
+      <NotNull>1</NotNull>
+      <Position>2</Position>
+      <StateNumber>758</StateNumber>
+      <StoredType>uuid|0s</StoredType>
+      <TypeId>2950</TypeId>
+    </column>
+    <foreign-key id="277" parent="265" name="FK_21e5f9d7559f2cdc1b74d21f2ab">
+      <ColNames>userId</ColNames>
+      <ObjectId>16531</ObjectId>
+      <OnDelete>cascade</OnDelete>
+      <OnUpdate>cascade</OnUpdate>
+      <StateNumber>758</StateNumber>
+      <RefKeyColPositions>1</RefKeyColPositions>
+      <RefTableId>16510</RefTableId>
+    </foreign-key>
+    <foreign-key id="278" parent="265" name="FK_8cd842777c28677ab881a9315d0">
+      <ColNames>clubId</ColNames>
+      <ObjectId>16536</ObjectId>
+      <OnDelete>cascade</OnDelete>
+      <OnUpdate>cascade</OnUpdate>
+      <StateNumber>758</StateNumber>
+      <RefKeyColPositions>1</RefKeyColPositions>
+      <RefTableId>16503</RefTableId>
+    </foreign-key>
+    <index id="279" parent="265" name="PK_1df43e43095b1018719aae6bb09">
+      <ColNames>userId
+clubId</ColNames>
+      <ObjectId>16522</ObjectId>
+      <Primary>1</Primary>
+      <StateNumber>758</StateNumber>
+      <Unique>1</Unique>
+      <AccessMethodId>403</AccessMethodId>
+      <CollationNames>default</CollationNames>
+      <CollationIds>100</CollationIds>
+      <CollationParentNames>pg_catalog</CollationParentNames>
+    </index>
+    <index id="280" parent="265" name="IDX_21e5f9d7559f2cdc1b74d21f2a">
+      <ColNames>userId</ColNames>
+      <ObjectId>16524</ObjectId>
+      <StateNumber>758</StateNumber>
+      <AccessMethodId>403</AccessMethodId>
+      <CollationNames>default</CollationNames>
+      <CollationIds>100</CollationIds>
+      <CollationParentNames>pg_catalog</CollationParentNames>
+    </index>
+    <index id="281" parent="265" name="IDX_8cd842777c28677ab881a9315d">
+      <ColNames>clubId</ColNames>
+      <ObjectId>16525</ObjectId>
+      <StateNumber>758</StateNumber>
+      <AccessMethodId>403</AccessMethodId>
+    </index>
+    <key id="282" parent="265" name="PK_1df43e43095b1018719aae6bb09">
+      <ObjectId>16523</ObjectId>
+      <Primary>1</Primary>
+      <StateNumber>758</StateNumber>
+      <UnderlyingIndexId>16522</UnderlyingIndexId>
     </key>
   </database-model>
 </dataSource>

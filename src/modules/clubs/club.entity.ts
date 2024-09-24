@@ -1,9 +1,9 @@
-import {Column, Entity, JoinTable, ManyToMany, ManyToOne, PrimaryColumn} from "typeorm";
+import {Column, Entity, ManyToMany, ManyToOne, PrimaryGeneratedColumn} from "typeorm";
 import {User} from "../user/user.entity";
 
 @Entity()
 export class Club {
-  @PrimaryColumn("uuid")
+  @PrimaryGeneratedColumn("uuid")
   id: string
 
   @Column()
@@ -13,6 +13,5 @@ export class Club {
   owner: User
 
   @ManyToMany(() => User)
-  @JoinTable()
   members: User[]
 }

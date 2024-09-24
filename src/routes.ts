@@ -50,7 +50,7 @@ function registerRoute(target: any, router: Router, route: RouteDefinition) {
         route.path,
         route.auth ?
           ClerkExpressRequireAuth({})
-          : () => {},
+          : (_req, _res, next) => next(),
         handler
       )
       break
@@ -59,7 +59,7 @@ function registerRoute(target: any, router: Router, route: RouteDefinition) {
         route.path,
         route.auth ?
           ClerkExpressRequireAuth({})
-          : () => {},
+          : (_req, _res, next) => next(),
         handler
       )
       break
@@ -67,11 +67,11 @@ function registerRoute(target: any, router: Router, route: RouteDefinition) {
 }
 
 export function get(path: string, auth: boolean = false) {
-  return request("get", path, auth);
+  return request("get", path, auth)
 }
 
 export function post(path: string, auth: boolean = false) {
-  return request("post", path, auth);
+  return request("post", path, auth)
 }
 
 function request(method: RouteDefinition['method'], path: string, auth: boolean) {
