@@ -1,4 +1,4 @@
-import {module} from "../routes";
+import {module} from "../../routes";
 import {UserController} from "./user.controller";
 
 @module({

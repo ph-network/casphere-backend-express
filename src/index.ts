@@ -2,7 +2,7 @@ import { AppDataSource } from "./data-source"
 import * as dotenv from "dotenv"
 import {morganMiddleware} from "./utils/logger";
 import {app, application} from "./routes";
-import {UserModule} from "./user/user.module";
+import {UserModule} from "./modules/user/user.module";
 
 dotenv.config()
 

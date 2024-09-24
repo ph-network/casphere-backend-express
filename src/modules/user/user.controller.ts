@@ -1,7 +1,7 @@
 import { Request, Response } from "express"
-import {controller, get} from "../routes";
+import {controller, get} from "../../routes";
 import {WithAuthProp} from "@clerk/clerk-sdk-node";
-import {clerkClient} from "../utils/clerk";
+import {clerkClient} from "../../utils/clerk";
 
 @controller("/user")
 export class UserController {
