@@ -1,29 +1,28 @@
 {
-  "name": "casphere-backend",
-  "version": "1.0.0",
-  "description": "",
-  "main": "dist/index.js",
-  "scripts": {
-    "build": "tsc",
-    "serve": "npx ts-node src/index.ts",
-    "dev": "nodemon --exec npm run serve src/index.ts"
-  },
-  "dependencies": {
-    "@clerk/clerk-sdk-node": "^5.0.42",
-    "@types/express": "^4.17.21",
-    "@types/node": "^22.5.5",
-    "dotenv": "^16.4.5",
-    "express": "^4.21.0",
-    "morgan": "^1.10.0",
-    "pg": "^8.13.0",
-    "reflect-metadata": "^0.2.2",
-    "typeorm": "^0.3.20",
-    "winston": "^3.14.2"
-  },
-  "devDependencies": {
-    "@types/morgan": "^1.9.9",
-    "nodemon": "^3.1.7",
-    "typescript": "^5.5.3"
-  },
-  "private": true
+   "name": "typeorm-sample",
+   "version": "0.0.1",
+   "description": "Awesome project developed with TypeORM.",
+   "type": "commonjs",
+   "devDependencies": {
+      "@types/express": "^4.17.21",
+      "@types/morgan": "^1.9.9",
+      "@types/node": "^16.11.10",
+      "nodemon": "^3.1.7",
+      "ts-node": "10.9.1",
+      "typescript": "4.5.2"
+   },
+   "dependencies": {
+      "@clerk/clerk-sdk-node": "^5.0.42",
+      "dotenv": "^16.4.5",
+      "express": "^4.17.2",
+      "morgan": "^1.10.0",
+      "pg": "^8.13.0",
+      "reflect-metadata": "^0.1.13",
+      "typeorm": "0.3.21-dev.e7649d2",
+      "winston": "^3.14.2"
+   },
+   "scripts": {
+      "start": "ts-node src/index.ts",
+      "dev": "nodemon --exec npm run start src/index.ts"
+   }
 }

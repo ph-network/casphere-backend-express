@@ -1,21 +1,18 @@
-import express from "express"
-import dotenv from "dotenv";
-import "reflect-metadata"
-import user from "./controllers/user.controller";
-import {logger, morganMiddleware} from "./logger";
+import { AppDataSource } from "./data-source"
+import * as dotenv from "dotenv"
+import {morganMiddleware} from "./logger";
+import {app, application} from "./routes";
+import {UserModule} from "./user/user.module";
 
-dotenv.config();
+dotenv.config()
 
-const app = express()
-const port = process.env.PORT;
-
-app.use(morganMiddleware)
-app.use("/user", user)
-
-app.get('/', (_req, res) => {
-  res.send("Hello World")
+@application({
+  modules: [UserModule]
 })
+class Application {}
 
-app.listen(port, () => {
-  logger.info(`Server is running on port ${port}`)
-})
+AppDataSource.initialize().then(async () => {
+  app.use(morganMiddleware)
+  new Application()
+  app.listen(3000)
+}).catch(error => console.log(error))

@@ -1,5 +1,6 @@
-import winston from "winston";
-import morgan from "morgan";
+import * as winston from "winston";
+import * as morgan from "morgan";
+
 const { combine, timestamp, printf, colorize, align } = winston.format;
 
 export const logger = winston.createLogger({
