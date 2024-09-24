@@ -1,5 +1,6 @@
 import {Router} from "express";
 import * as express from "express";
+import {ClerkExpressRequireAuth} from "@clerk/clerk-sdk-node";
 
 export const app = express()
 
@@ -29,6 +30,7 @@ interface RouteDefinition {
   method: 'get' | 'post';
   path: string;
   handlerName: string;
+  auth: boolean;
 }
 
 export function controller(basePath: string) {
@@ -44,26 +46,38 @@ function registerRoute(target: any, router: Router, route: RouteDefinition) {
   const handler = target[route.handlerName]
   switch (route.method) {
     case "get":
-      router.get(route.path, handler)
+      router.get(
+        route.path,
+        route.auth ?
+          ClerkExpressRequireAuth({})
+          : () => {},
+        handler
+      )
       break
     case "post":
-      router.post(route.path, handler)
+      router.post(
+        route.path,
+        route.auth ?
+          ClerkExpressRequireAuth({})
+          : () => {},
+        handler
+      )
       break
   }
 }
 
-export function get(path: string) {
-  return request("get", path);
+export function get(path: string, auth: boolean = false) {
+  return request("get", path, auth);
 }
 
-export function post(path: string) {
-  return request("post", path);
+export function post(path: string, auth: boolean = false) {
+  return request("post", path, auth);
 }
 
-function request(method: RouteDefinition['method'], path: string) {
+function request(method: RouteDefinition['method'], path: string, auth: boolean) {
   return function (target: any, propertyKey: string, _descriptor: PropertyDescriptor) {
     const routes: RouteDefinition[] = Reflect.getMetadata(ROUTES_KEY, target) || []
-    routes.push({ method: method, path, handlerName: propertyKey })
+    routes.push({ method: method, path, handlerName: propertyKey, auth })
     Reflect.defineMetadata(ROUTES_KEY, routes, target)
   }
 }
