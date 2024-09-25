@@ -1,6 +1,6 @@
 import {Column, Entity, ManyToMany, ManyToOne, PrimaryGeneratedColumn} from "typeorm";
 import {User} from "../user/user.entity";
-import {CreateClub} from "./club.dto";
+import {ClubInfo} from "./club.dto";
 import {plainToClass} from "class-transformer";
 
 @Entity()
@@ -17,11 +17,11 @@ export class Club {
   @ManyToMany(() => User)
   members: User[]
 
-  static fromDto(model: CreateClub): Club {
+  static fromDto(model: ClubInfo): Club {
     return plainToClass(Club, model)
   }
 
-  toDto(): CreateClub {
-    return plainToClass(CreateClub, this)
+  toDto(): ClubInfo {
+    return plainToClass(ClubInfo, this)
   }
 }

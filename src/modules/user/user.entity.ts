@@ -1,11 +1,6 @@
-import {Column, Entity, JoinTable, ManyToMany, OneToMany, PrimaryColumn} from "typeorm"
+import {Entity, JoinTable, ManyToMany, ManyToOne, OneToMany, PrimaryColumn} from "typeorm"
 import {Club} from "../clubs/club.entity";
-
-export enum UserRole {
-  TEACHER = "teacher",
-  STUDENT = "student",
-  ADMIN = "admin",
-}
+import {Role} from "../permission/permission.entity";
 
 @Entity()
 export class User {
@@ -19,10 +14,6 @@ export class User {
   @JoinTable()
   joinedClubs: Club[]
 
-  @Column({
-    type: "enum",
-    enum: UserRole,
-    default: UserRole.STUDENT
-  })
-  role: UserRole
+  @ManyToOne(() => Role, role => role)
+  role: Role
 }

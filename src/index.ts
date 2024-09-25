@@ -1,8 +1,8 @@
 import * as dotenv from "dotenv"
-import {application} from "./routes";
 import {UserModule} from "./modules/user/user.module";
 import {ClubModule} from "./modules/clubs/club.module";
 import {CASPhere} from "./app";
+import {application} from "./routes";
 
 dotenv.config()
 

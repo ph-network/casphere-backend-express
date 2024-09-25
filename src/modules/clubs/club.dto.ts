@@ -1,11 +1,12 @@
 import {IsNotEmpty, IsString} from "class-validator";
 
-export class JoinClub {
+export class ClubParams {
   id: string
 }
 
-export class CreateClub {
+export class ClubInfo {
   @IsString()
   @IsNotEmpty()
   name: string
 }
+
