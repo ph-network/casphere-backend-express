@@ -1,7 +1,7 @@
 {
-   "name": "typeorm-sample",
+   "name": "casphere-backend",
    "version": "0.0.1",
-   "description": "Awesome project developed with TypeORM.",
+   "description": "Casphere backend.",
    "type": "commonjs",
    "devDependencies": {
       "@types/express": "^4.17.21",
