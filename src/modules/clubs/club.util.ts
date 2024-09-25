@@ -1,5 +1,4 @@
 import {User, UserRole} from "../user/user.entity";
-import {Repository} from "typeorm";
 import {Result} from "../../utils/error";
 
 export async function validateStudent(user: User): Promise<Result> {

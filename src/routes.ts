@@ -51,7 +51,7 @@ export function controller(basePath: string) {
 
 type Middleware = (req: Request, res: Response, next: NextFunction) => void
 
-const ValidateForm = async (req: Request, res: Response, next: NextFunction) => {
+const ValidateForm = async (req: Request, res: Response, _next: NextFunction) => {
   const form = req.body
   const formErrors = await validate(form)
 
