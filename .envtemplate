@@ -1,8 +1,13 @@
+# Server Config
 PORT=3000
+LOG=info
+
+# Postgres Info
 DATABASE_HOST=localhost
 DATABASE_PORT=5432
 DATABASE_USERNAME=phakel
 DATABSE_PASSWORD=
 DATABASE=casphere
-LOG=info
+
+# Clerk
 CLERK_SECRET_KEY=abc

@@ -6,10 +6,10 @@ export class User {
   @PrimaryColumn()
   id: string
 
-  @OneToMany(() => Club, (club) => club.owner)
+  @OneToMany(() => Club, (club) => club.owner, { eager: true })
   ownedClubs: Club[]
 
-  @ManyToMany(() => Club)
+  @ManyToMany(() => Club, { eager: true })
   @JoinTable()
   joinedClubs: Club[]
 }

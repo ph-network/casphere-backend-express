@@ -1,6 +1,7 @@
 import {Router} from "express";
 import * as express from "express";
 import {ClerkExpressRequireAuth} from "@clerk/clerk-sdk-node";
+import "reflect-metadata";
 
 export const app = express()
 
